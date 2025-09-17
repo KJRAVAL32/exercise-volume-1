@@ -1,13 +1,3 @@
-# fruits = ("apple", "banana", "cherry","dragon fruit","avocado","felt apple")
-#
-# (green, *yellow, red) = fruits
-#
-# print(green)
-# print(yellow)
-# print(red)
-# thisset = {"apple", "banana", "cherry", True, 1, 2}
-# # print(thisset)
-# del thisset
 class product:
     def __init__(self,name,code,categeoy,price):
         self.name = name
@@ -19,6 +9,9 @@ class Category:
         self.name=name
         self.code = code
         self.no_of_product = int(no_of_product)
+
+
+
 cat1=Category("Smart Home Devices","0001")
 cat2=Category("Home Appliances","0002")
 cat3=Category("Audio & Speakers","0003")
@@ -39,23 +32,28 @@ for cat in co:
     for prod in po:
         if cat.code == prod.categeoy.code:
             cat.no_of_product += 1
+
 for c in co:
     print(c.name,c.code, c.no_of_product)
 for i in range(len(po)):
     for j in range(i+1,len(po)):
         if po[j].price < po[i].price:
-            po[j].price,po[i].price=po[i].price,po[j].price
+            po[j],po[i]=po[i],po[j]
+
 print("low to high---------------------------")
 for i in po:
     print(i.name,i.code,i.price)
+
 print("high to low------------------------------------")
 for i in range(len(po)):
     for j in range(i+1,len(po)):
         if po[j].price > po[i].price:
-            po[j].price,po[i].price=po[i].price,po[j].price
+            po[j],po[i]=po[i],po[j]
+
 for i in po:
     print(i.name,i.code,i.price)
 srch=int(input("search the product:"))
+
 for i in range(len(po)):
     if srch == po[i].code:
         print(po[i].name,po[i].code,po[i].price)
