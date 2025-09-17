@@ -72,10 +72,11 @@ po = [
     Product("Bose SoundLink Revolve+ II", "010", cat3, "4000")
 ]
 
-cat1.print_cate(co, po)
+co[0].print_cate(co, po)
 
-price_lowtohigh=Category.sort_l_to_h()
+co[1].sort_l_to_h()
 
-price_hightolow = Category.sort_h_to_l()
+co[1].sort_h_to_l()
 
-cat1.search(po)
+co[0].search(po)
+
