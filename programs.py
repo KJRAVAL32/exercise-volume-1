@@ -4,24 +4,18 @@ class Product:
         self.code = int(code)
         self.categeoy = categeoy
         self.price = int(price)
+
+
 class Category:
+
     def __init__(self, name, code, no_of_product=0):
         self.name = name
         self.code = code
         self.no_of_product = int(no_of_product)
 
     @staticmethod
-    def print_cate(co, po):
-        for cat in co:
-            cat.no_of_product = 0
-            for prod in po:
-                if cat.code == prod.categeoy.code:
-                    cat.no_of_product += 1
-        for c in co:
-            print(f"Name: {c.name}, Code: {c.code}, No of products: {c.no_of_product}")
-
-    @staticmethod
     def sort_l_to_h():
+
         for i in range(len(po)):
             for j in range(i + 1, len(po)):
                 if po[j].price < po[i].price:
@@ -41,8 +35,7 @@ class Category:
         for i in po:
             print(f"Name: {i.name}, Code: {i.code}, Price: {i.price}")
 
-    @staticmethod
-    def search():
+    def search(self,po):
         srch = int(input("search the product:"))
         for i in range(len(po)):
             if srch == po[i].code:
@@ -53,6 +46,14 @@ class Category:
         else:
             print("not found")
 
+    def print_cate(self, co, po):
+        for cat in co:
+            cat.no_of_product = 0
+            for prod in po:
+                if cat.code == prod.categeoy.code:
+                    cat.no_of_product += 1
+        for c in co:
+            print(f"Name: {c.name}, Code: {c.code}, No of products: {c.no_of_product}")
 
 cat1 = Category("Smart Home Devices", "1")
 cat2 = Category("Home Appliances", "2")
@@ -71,10 +72,10 @@ po = [
     Product("Bose SoundLink Revolve+ II", "010", cat3, "4000")
 ]
 
-category_print=Category.print_cate(co,po)
+cat1.print_cate(co, po)
 
 price_lowtohigh=Category.sort_l_to_h()
 
 price_hightolow = Category.sort_h_to_l()
 
-search=Category.search()
+cat1.search(po)
